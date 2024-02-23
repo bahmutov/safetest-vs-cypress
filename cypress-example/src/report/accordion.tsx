@@ -1,33 +1,34 @@
-import React from 'react';
-import { ComponentsContext } from './report';
+import React from 'react'
+import { ComponentsContext } from './report'
 
-const borderColor = '#e2e2e2';
-const backgroundColorOpen = '#f7f7f7';
-const backgroundColorClosed = '#fafafa';
+const borderColor = '#e2e2e2'
+const backgroundColorOpen = '#f7f7f7'
+const backgroundColorClosed = '#fafafa'
 
 export const Accordion: React.FunctionComponent<
   React.PropsWithChildren<{
-    summary: React.ReactNode;
-    open?: boolean;
-    defaultOpen?: boolean;
-    onChange?: (open: boolean) => void;
+    summary: React.ReactNode
+    open?: boolean
+    defaultOpen?: boolean
+    onChange?: (open: boolean) => void
   }>
 > = ({ children, summary, open: propOpen, defaultOpen, onChange }) => {
-  const { Expandable } = React.useContext(ComponentsContext);
-  const [open, setOpen] = React.useState(defaultOpen ?? !!propOpen);
+  const { Expandable } = React.useContext(ComponentsContext)
+  const [open, setOpen] = React.useState(defaultOpen ?? !!propOpen)
 
   React.useEffect(() => {
-    if (propOpen !== undefined) setOpen(propOpen);
-  }, [propOpen]);
+    if (propOpen !== undefined) setOpen(propOpen)
+  }, [propOpen])
 
-  const background = open ? backgroundColorOpen : backgroundColorClosed;
+  const background = open ? backgroundColorOpen : backgroundColorClosed
 
   return (
     <div style={{ border: `1px solid #${borderColor}` }}>
       <div
+        data-testid="toggle"
         onClick={() => {
-          setOpen(!open);
-          onChange?.(!open);
+          setOpen(!open)
+          onChange?.(!open)
         }}
         style={{ cursor: 'pointer', padding: 10, margin: 2, background }}
       >
@@ -47,5 +48,5 @@ export const Accordion: React.FunctionComponent<
         <div style={{ marginLeft: '1.5em', padding: 8 }}>{children}</div>
       </Expandable>
     </div>
-  );
-};
+  )
+}
