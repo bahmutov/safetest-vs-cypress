@@ -18,8 +18,9 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["cypress"]
   },
-  "include": ["src"],
+  "include": ["src", "cypress/support/component.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
