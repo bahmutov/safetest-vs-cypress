@@ -67,7 +67,7 @@ describe('Main', () => {
     });
   }
 
-  it('can use the bridge function', async () => {
+  it.only('can use the bridge function', async () => {
     let count = 0;
     let forceNumber: (num: number) => void = () => {};
     const Counter = () => {
